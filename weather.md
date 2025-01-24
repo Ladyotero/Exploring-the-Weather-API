@@ -51,14 +51,6 @@ https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London&aqi=yes
   - `q`: Location (e.g., `London`).
   - `aqi`: Optional (`yes` for air quality data).
 
-#### Screenshot of Request Setup
-
-![Request Setup](./images/request-setup.png)
-
-#### Screenshot of Response
-
-![Response](./images/response.png)
-
 ### Reflection on Query Parameters
 
 Query parameters are critical in defining the scope and granularity of the data returned by an API.Query parameters help get the right data. Correct usage ensures accurate responses and minimizes API calls.
