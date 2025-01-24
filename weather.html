@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>Free Weather API | Weatherbit</title>
+    <meta name="description" content="Access accurate weather data with the Weather API by Weatherbit. Get real-time, historical, and forecast weather data for any location worldwide">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="language" content="english">
+    <meta charset="UTF-8">
+<!--     <meta name="keywords" content="Weather API, Free Weather API, Forecast API, Historical Weather Data"> -->
+    <meta name="author" content="Weatherbit">
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="https://cdn.weatherbit.io/static/css/home.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://cdn.weatherbit.io/static/img/favicon.png"><!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+    <!-- Preload async -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></noscript>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon//favicon-16x16.png">
+    <link rel="manifest" href="/static/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-979SP3JGQE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-979SP3JGQE');
+      gtag('config', 'AW-11111876071');
+    </script>
+
+    <link rel="canonical" href="https://www.weatherbit.io/">
+
+</head><body><nav id="main-nav" class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <div class="navbar-header">
+                        <button type="button" class="toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="/"><img id="navbar-logo"src="https://cdn.weatherbit.io/static/img/logos/weatherbit/color/svg/logo-no-background.svg" alt="Weatherbit API Logo"></a>
+                        <!-- <a href="/"><img id="navbar-logo">Weatherbit.io</a> -->
+                        
+                         <!-- <a href="/"><img id="navbar-logo"><i class="fa fa-cloud fa-1x" style="padding-top:5px;font-size:50px" aria-hidden="true"></i></a> -->
+                    </div>
+
+                    
+                        <div class="collapse navbar-collapse navbar-top-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <!-- <li class=""><a href="/"><span class="nav-home"></span></a></li>  -->
+                                <li class=""><a href="/features">Features</a></li> 
+                                <li class=""><a href="/pricing">Pricing</a></li> 
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Weather API's <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-main-nav dropdown-mega" style="width:225px; margin-right:-81px; ">
+                                        <li class="dropdown-third" style="width:100%">
+                                            <ul>
+                                                <li><a href="/api/weather-current">Current Weather</a></li>
+                                                <li><a href="/api/alerts">Severe Weather Alerts</a></li>
+                                                <li><a href="/api/weather-forecast-api">Forecasts</a></li>
+                                                <li><a href="/api/historical-weather-api">Historical Weather</a></li>
+                                                <li><a href="/api/agweather-api">Ag-Weather</a></li>
+                                                <li><a href="/api/air-quality-api">Air Quality</a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-main-nav dropdown-mega" style="width:320px; margin-right:-199px; ">
+                                        <li class="dropdown-third" style="width:100%">
+                                            <ul>
+                                                <li><a href="/api">API Documentation</a></li>
+                                                <li><a href="https://help.weatherbit.io/faq">Frequently Asked Questions</a></li>
+                                                <li><a href="https://status.weatherbit.io" target="_blank" rel="noopener noreferrer">API Status</a></li>
+                                                <li><a href="/forecast-comparison">Forecast Accuracy</a></li>
+                                                <li><a href="/maps">Weather Maps</a></li>
+                                                <li><a href="https://blog.weatherbit.io">Blog</a></li>
+                                                <li><a href="/about">About Us</a></li>
+                                                <li class="divider"></li>
+
+                                                <li><a href="https://help.weatherbit.io"><i class="fa fa-book"></i> Knowledge Base</a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                                <li class=""><a href="/contact">Contact Us</a></li> 
+
+                                <li role="presentation" class="divider-vertical"><span>|</span></li>
+
+                                    
+                                    <li class=""><a href="/account/login">Log in <span class="login-caret"></span></a></li>
+                                    <li class="visible-xs"><a href="/account/create">Sign up</a></li>
+                                    
+                                    <li class="hidden-xs"><div><a id="btn-signup-top" class="btn btn-white btn-sm navbar-btn hidden-xs" href="/account/create">Sign up</a></div></li>
+                                    
+
+                                    
+                            </ul>
+                        </div>
+                    
+
+
+                </div>
+            </nav><main >
+    <section id="weather-apis-for-you" class="hero extra-space" style="overflow-x: hidden;overflow-y:hidden;">
+    <div class="cloud-container">
+       <svg class="clouds cloud1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" width="512" height="512" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+        <path id="cloud-icon" d="M406.1 227.63c-8.23-103.65-144.71-137.8-200.49-49.05 -36.18-20.46-82.33 3.61-85.22 45.9C80.73 229.34 50 263.12 50 304.1c0 44.32 35.93 80.25 80.25 80.25h251.51c44.32 0 80.25-35.93 80.25-80.25C462 268.28 438.52 237.94 406.1 227.63z"/>
+        </svg>
+      <svg class="clouds cloud2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" width="512" height="512" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+        <path id="cloud-icon" d="M406.1 227.63c-8.23-103.65-144.71-137.8-200.49-49.05 -36.18-20.46-82.33 3.61-85.22 45.9C80.73 229.34 50 263.12 50 304.1c0 44.32 35.93 80.25 80.25 80.25h251.51c44.32 0 80.25-35.93 80.25-80.25C462 268.28 438.52 237.94 406.1 227.63z"/>
+        </svg>
+    </div>
+
+
+        <div class="container">
+
+            <div class="row-content">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 pad-xs">
+                            <div class="row-content">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <h1 id="home-header" class="text-center">Weather API for <span id="weather-apis-for" class="animated fadeInLeft">You.</span></h1>
+                                    <h2 id="high-performance" style="font-weight: 600;" class="h2-large lead text-center">The High Performance Weather API for All of Your Data Needs.</h2>
+                                </div>
+                            </div>
+
+                            <div class="row pad-xs">
+
+                                <div class="col-sm-5">
+                                    <h3 class='h3-medium' style="text-align: center; font-weight: 600; font-size:18px;">Enhance your business with our global weather data API. Start with a free trial in just a few clicks!</h3>
+
+                                    <form action="/signup_save" method="post">
+                                        <div class="form-group">
+                                            <label for="email" class="sr-only">Your email</label>
+                                            <input id="email" name="email" type="text" class="form-control input-lg" placeholder="Your email" aria-label="Your email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="sr-only">Choose a username</label>
+                                            <input id="username" name="username" type="text" class="form-control input-lg" placeholder="Choose a username" aria-label="Choose a username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="sr-only">Choose a password</label>
+                                            <input id="password" name="password" type="password" class="form-control input-lg" placeholder="Choose a password" aria-label="Choose a password">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-blue btn-lg btn-block btn-border" style="border-style: solid;border-color:white;border-width: 1px;">Create Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <div class="col-sm-7 weather-container">
+                                    
+                                    <div class="weather_animated loading">
+
+                                         <input type="hidden" name="client_ip" value="50.220.146.114">
+                                         <input name="_csrf_token" type="hidden" value="IjU5YjVlODQ4MjgyMTFmNWU4Y2I4OWNjNGMyZmI1NjQwMmM3MzdiMDEi.Z5P5CQ.GvFIO2WZY3D2GuACzuhwnZUqjs8">
+
+                                         <div class="location">
+
+                                            <span data-api="location"></span>
+
+                                         </div>
+
+                                         <div class="main_left">
+
+                                            <i data-api="current_icon" class="loading"></i>
+                                            <span data-api="current_main_descr"></span>
+
+                                         </div>
+
+                                         <div class="main_right">
+
+                                            <span data-api="current_wind_speed" class="wind"></span>
+                                            <span data-api="current_precip" class="precip"></span>
+                                            <span data-api="current_snow" class="snow"></span>
+                                            <span data-api="current_pressure" class="pressure"></span>
+                                            <div class="hidden-temp">Temperature:</div><span data-api="current_temperature" class="temperature"></span>
+
+                                         </div>
+
+                                         <div data-api="forecast_week" class="week">
+                                            <div class="day dn1">
+                                                <span class="name"></span>
+                                                <i></i>
+                                                <span class="temperature"></span>
+                                            </div>
+                                            <div class="day dn2">
+                                                <span class="name"></span>
+                                                <i></i><span class="temperature"></span>
+                                            </div>
+                                            <div class="day dn3">
+                                                <span class="name"></span>
+                                                <i></i>
+                                                <span class="temperature"></span>
+                                            </div>
+                                            <div class="day dn4">
+                                                <span class="name"></span>
+                                                <i></i>
+                                                <span class="temperature"></span>
+                                            </div>
+                                            <div class="day dn5">
+                                                <span class="name"></span>
+                                                <i></i>
+                                                <span class="temperature"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="lightning-quick" class="hero-accent home-hero-accent">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="h3 text-center">Premium Weather API starting at <strong>$40/mo</strong></h2>
+                    <h3 class="h3 text-center">Try it for <a href="/account/create">free</a>, today! </h3>
+                    <h4 class="h4 text-center lead">
+                        <a href="/pricing">View Pricing</a>&nbsp;  |  &nbsp;<a href="/api">View Docs</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trusted-by" class="primary extra-space">
+        <div class="container">
+            <div class="row">
+                <div id="banner-container">
+                    <div id="text-container">
+                      <div id="banner-text">
+                        Trusted By:
+                      </div>
+                    </div>
+                        <div id="banner">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c2.svg" alt="Customer 1">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c10.svg" alt="Customer 3">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c5.svg" alt="Customer 4">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c9.svg" alt="Customer 5">
+                        <img style='width:120px;height:60px;' src="https://cdn.weatherbit.io/static/img/logos/c7.svg" alt="Customer 6">
+                        <img style='width:120px;height:75px;' src="https://cdn.weatherbit.io/static/img/logos/c8.svg" alt="Customer 7">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c3.svg" alt="Customer 2">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c11.svg" alt="Customer 8">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c4.svg" alt="Customer 9">
+                        <!-- repeat -->
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c2.svg" alt="Customer 1">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c10.svg" alt="API Customer 3">
+                        <img style='width:120px;' src="https://cdn.weatherbit.io/static/img/logos/c5.svg" alt="API Customer 4">
+                      </div>
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+    </section>
+
+<section id="code-demo" class="hero-accent home-hero-accent">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6 text-center">
+                <div class="btn-group w-100" role="group" aria-label="Code examples" style="border-radius: 5px; overflow: hidden;">
+                    <button type="button" class="btn btn-primary ex-selected" id="ex1-btn" onclick="showCode('ex1-code','ex1');return false;">Current Weather</button>
+                    <button type="button" class="btn btn-primary" id="ex2-btn" onclick="showCode('ex2-code','ex2');return false;">Forecast</button>
+                    <button type="button" class="btn btn-primary" id="ex3-btn" onclick="showCode('ex3-code','ex3');return false;">Historical Weather</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="padding-top: 10px;">
+                <div class="code-result"  style="height: 125px;">
+                    <pre style="border-radius: 3px;">
+<code id="ex1-codereq" class="language-javascript req-block" style="display: block;">
+curl --request GET \
+--url 'https://api.weatherbit.io/v2.0/current?lat=35.7721&lon=-78.63861&key=XXX&units=I'\
+--header 'accept: application/json'
+</code>
+<code id="ex2-codereq" class="language-javascript req-block" style="display: block;">
+curl --request GET \
+--url 'https://api.weatherbit.io/v2.0/forecast/daily?lat=35.7721&lon=-78.63861&key=XXX&units=I&days=5'\
+--header 'accept: application/json'
+</code>
+<code id="ex3-codereq" class="language-javascript req-block" style="display: block;">
+curl --request GET \
+--url 'https://api.weatherbit.io/v2.0/history/daily?lat=35.7721&lon=-78.63861&key=XXX&start_date=2023-04-14&end_date=2023-04-05&tz=local&units=I'\
+--header 'accept: application/json'
+</code>
+                    </pre>
+                </div>
+
+                <div class="code-result" style="height: 400px; overflow-y: scroll;">
+                    <pre style="border-radius: 3px;">
+                        <code id="ex1-code" class="language-javascript code-block selected" style="display: block;">
+{
+  "count": 1,
+  "data": [
+    {
+      "app_temp": 63.8,
+      "aqi": 46,
+      "city_name": "Raleigh",
+      "clouds": 0,
+      "country_code": "US",
+      "datetime": "2023-04-16:03",
+      "dewpt": 59.3,
+      "dhi": 0,
+      "dni": 0,
+      "elev_angle": -33.97,
+      "ghi": 0,
+      "gust": 6.2,
+      "h_angle": -90,
+      "lat": 35.7721,
+      "lon": -78.63861,
+      "ob_time": "2023-04-16 03:30",
+      "pod": "n",
+      "precip": 0,
+      "pres": 1001.8,
+      "rh": 85,
+      "slp": 1014.9,
+      "snow": 0,
+      "solar_rad": 0,
+      "sources": [
+        "1327W"
+      ],
+      "state_code": "NC",
+      "station": "1327W",
+      "sunrise": "10:40",
+      "sunset": "23:49",
+      "temp": 63.7,
+      "timezone": "America/New_York",
+      "ts": 1681615800,
+      "uv": 0,
+      "vis": 9.9,
+      "weather": {
+        "icon": "c01n",
+        "description": "Clear sky",
+        "code": 800
+      },
+      "wind_cdir": "SW",
+      "wind_cdir_full": "southwest",
+      "wind_dir": 230,
+      "wind_spd": 3.4
+    }
+  ]
+}
+                        </code>
+                        <code id="ex2-code" class="language-javascript code-block" style="display:none;">
+{
+  "city_name": "Raleigh",
+  "country_code": "US",
+  "data": [
+    {
+      "app_max_temp": 76.4,
+      "app_min_temp": 58.4,
+      "clouds": 8,
+      "clouds_hi": 0,
+      "clouds_low": 8,
+      "clouds_mid": 0,
+      "datetime": "2023-04-15",
+      "dewpt": 57.2,
+      "high_temp": 76.8,
+      "low_temp": 56.9,
+      "max_dhi": null,
+      "max_temp": 76.6,
+      "min_temp": 58.4,
+      "moon_phase": 0.140771,
+      "moon_phase_lunation": 0.86,
+      "moonrise_ts": 1681546892,
+      "moonset_ts": 1681589154,
+      "ozone": 303.4,
+      "pop": 0,
+      "precip": 0,
+      "pres": 1001.9,
+      "rh": 62,
+      "slp": 1012.2,
+      "snow": 0,
+      "snow_depth": 0,
+      "sunrise_ts": 1681555256,
+      "sunset_ts": 1681602515,
+      "temp": 71.6,
+      "ts": 1681585260,
+      "uv": 5.7,
+      "valid_date": "2023-04-15",
+      "vis": 18.8,
+      "weather": {
+        "icon": "c02d",
+        "description": "Few clouds",
+        "code": 801
+      },
+      "wind_cdir": "SW",
+      "wind_cdir_full": "southwest",
+      "wind_dir": 224,
+      "wind_gust_spd": 12.3,
+      "wind_spd": 6.5
+    },
+    {
+      "app_max_temp": 77.1,
+      "app_min_temp": 56.9,
+      "clouds": 41,
+      "clouds_hi": 40,
+      "clouds_low": 26,
+      "clouds_mid": 21,
+      "datetime": "2023-04-16",
+      "dewpt": 60.2,
+      "high_temp": 76.9,
+      "low_temp": 49.9,
+      "max_dhi": null,
+      "max_temp": 76.9,
+      "min_temp": 56.9,
+      "moon_phase": 0.0671313,
+      "moon_phase_lunation": 0.89,
+      "moonrise_ts": 1681635327,
+      "moonset_ts": 1681679762,
+      "ozone": 298.7,
+      "pop": 25,
+      "precip": 0.036,
+      "pres": 1000.1,
+      "rh": 79,
+      "slp": 1010,
+      "snow": 0,
+      "snow_depth": 0,
+      "sunrise_ts": 1681641576,
+      "sunset_ts": 1681688966,
+      "temp": 66.4,
+      "ts": 1681617660,
+      "uv": 3.6,
+      "valid_date": "2023-04-16",
+      "vis": 12,
+      "weather": {
+        "icon": "c03d",
+        "description": "Broken clouds",
+        "code": 803
+      },
+      "wind_cdir": "SSW",
+      "wind_cdir_full": "south-southwest",
+      "wind_dir": 200,
+      "wind_gust_spd": 15.7,
+      "wind_spd": 7.2
+    },
+    {
+      "app_max_temp": 67.6,
+      "app_min_temp": 49.9,
+      "clouds": 14,
+      "clouds_hi": 20,
+      "clouds_low": 10,
+      "clouds_mid": 4,
+      "datetime": "2023-04-17",
+      "dewpt": 43.3,
+      "high_temp": 69.6,
+      "low_temp": 51.7,
+      "max_dhi": null,
+      "max_temp": 69.6,
+      "min_temp": 49.9,
+      "moon_phase": 0.0196783,
+      "moon_phase_lunation": 0.93,
+      "moonrise_ts": 1681723525,
+      "moonset_ts": 1681770292,
+      "ozone": 310.9,
+      "pop": 25,
+      "precip": 0.041,
+      "pres": 997.2,
+      "rh": 57,
+      "slp": 1008.4,
+      "snow": 0,
+      "snow_depth": 0,
+      "sunrise_ts": 1681727898,
+      "sunset_ts": 1681775416,
+      "temp": 59.4,
+      "ts": 1681704060,
+      "uv": 9.2,
+      "valid_date": "2023-04-17",
+      "vis": 9.8,
+      "weather": {
+        "icon": "c02d",
+        "description": "Few clouds",
+        "code": 801
+      },
+      "wind_cdir": "WSW",
+      "wind_cdir_full": "west-southwest",
+      "wind_dir": 250,
+      "wind_gust_spd": 22.1,
+      "wind_spd": 10.1
+    },
+    {
+      "app_max_temp": 72.6,
+      "app_min_temp": 51.7,
+      "clouds": 3,
+      "clouds_hi": 0,
+      "clouds_low": 3,
+      "clouds_mid": 0,
+      "datetime": "2023-04-18",
+      "dewpt": 33.7,
+      "high_temp": 74.5,
+      "low_temp": 53.6,
+      "max_dhi": null,
+      "max_temp": 74.5,
+      "min_temp": 51.7,
+      "moon_phase": 0.000458922,
+      "moon_phase_lunation": 0.96,
+      "moonrise_ts": 1681811598,
+      "moonset_ts": 1681860789,
+      "ozone": 308.4,
+      "pop": 0,
+      "precip": 0,
+      "pres": 1001.5,
+      "rh": 36,
+      "slp": 1014.4,
+      "snow": 0,
+      "snow_depth": 0,
+      "sunrise_ts": 1681814220,
+      "sunset_ts": 1681861867,
+      "temp": 62.3,
+      "ts": 1681790460,
+      "uv": 9.3,
+      "valid_date": "2023-04-18",
+      "vis": 15,
+      "weather": {
+        "icon": "c02d",
+        "description": "Few clouds",
+        "code": 801
+      },
+      "wind_cdir": "WSW",
+      "wind_cdir_full": "west-southwest",
+      "wind_dir": 251,
+      "wind_gust_spd": 15.9,
+      "wind_spd": 8.9
+    },
+    {
+      "app_max_temp": 79.2,
+      "app_min_temp": 53.6,
+      "clouds": 0,
+      "clouds_hi": 1,
+      "clouds_low": 0,
+      "clouds_mid": 0,
+      "datetime": "2023-04-19",
+      "dewpt": 44.6,
+      "high_temp": 80.1,
+      "low_temp": 59.5,
+      "max_dhi": null,
+      "max_temp": 80.1,
+      "min_temp": 53.6,
+      "moon_phase": 0.00911664,
+      "moon_phase_lunation": 0.99,
+      "moonrise_ts": 1681899645,
+      "moonset_ts": 1681951282,
+      "ozone": 321.8,
+      "pop": 0,
+      "precip": 0,
+      "pres": 1007.2,
+      "rh": 49,
+      "slp": 1021.1,
+      "snow": 0,
+      "snow_depth": 0,
+      "sunrise_ts": 1681900543,
+      "sunset_ts": 1681948319,
+      "temp": 65.8,
+      "ts": 1681876860,
+      "uv": 9.3,
+      "valid_date": "2023-04-19",
+      "vis": 15,
+      "weather": {
+        "icon": "c01d",
+        "description": "Clear Sky",
+        "code": 800
+      },
+      "wind_cdir": "WSW",
+      "wind_cdir_full": "west-southwest",
+      "wind_dir": 238,
+      "wind_gust_spd": 4.5,
+      "wind_spd": 4.5
+    }
+  ],
+  "lat": "35.7721",
+  "lon": "-78.63861",
+  "state_code": "NC",
+  "timezone": "America/New_York"
+}
+                        </code>
+                        <code id="ex3-code" class="language-javascript code-block" style="display:none;">
+{
+  "city_id": "4487042",
+  "city_name": "Raleigh",
+  "country_code": "US",
+  "data": [
+    {
+      "clouds": 80,
+      "datetime": "2023-04-14",
+      "dewpt": 60.8,
+      "dhi": 50.4,
+      "dni": 404,
+      "ghi": 306,
+      "max_dhi": 122.8,
+      "max_dni": 931.9,
+      "max_ghi": 949.3,
+      "max_temp": 80.6,
+      "max_temp_ts": 1681498800,
+      "max_uv": 4.3,
+      "max_wind_dir": 129,
+      "max_wind_spd": 8.1,
+      "max_wind_spd_ts": 1681444800,
+      "min_temp": 57.2,
+      "min_temp_ts": 1681459200,
+      "precip": 0.591,
+      "precip_gpm": 0.591,
+      "pres": 998.6,
+      "revision_status": "interim",
+      "rh": 80.5,
+      "slp": 1014.1,
+      "snow": 0,
+      "snow_depth": null,
+      "solar_rad": 119.6,
+      "t_dhi": 1210.5,
+      "t_dni": 9696.8,
+      "t_ghi": 7342.8,
+      "t_solar_rad": 2870.3,
+      "temp": 67.1,
+      "ts": 1681444800,
+      "wind_dir": 129,
+      "wind_gust_spd": 8.7,
+      "wind_spd": 4.5
+    }
+  ],
+  "lat": 35.7721,
+  "lon": -78.63861,
+  "sources": [
+    "723060-13722",
+    "US1NCWK0234",
+    "US1NCWK0229",
+    "US1NCWK0082",
+    "US1NCWK0123",
+    "imerg",
+    "merra2",
+    "era5",
+    "modis"
+  ],
+  "state_code": "NC",
+  "station_id": "723060-13722",
+  "timezone": "America/New_York"
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div id="codedemodesc" class="row"><h3>Integrate With the World’s Best Weather API in Just a Few Minutes</h3></div>
+            </br>
+                <div class="row">
+                    <p style="font-weight:600;">Over 45 Available Fields Including:</p>
+                </div>
+                <div class="row" style="padding-top:15px;">
+                    <div class="col-md-4">
+                        <ul style="list-style-type: none;">
+                          <li>Temperature</li>
+                          <li>Pressure</li>
+                          <li>Dew point</li>
+                          <li>Wind speed</li>
+                          <li>Wind direction</li>
+                          <li>Air quality</li>
+                          <li>Pollen</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul style="list-style-type: none;">
+                          <li>Precipitation</li>
+                          <li>Snowfall</li>
+                          <li>Cloud Cover</li>
+                          <li>Humidity</li>
+                          <li>Dew Point</li>
+                          <li>Evapotranspiration</li>
+                          <li>Lightning</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul style="list-style-type: none;">
+                          <li>Solar Radiation</li>
+                          <li>UV Index</li>
+                          <li>Visibility</li>
+                          <li>Weather</li>
+                          <li>Day/Night</li>
+                          <li>Sunrise/Sunset</li>
+                          <li>And more...</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px;">
+                    <p style="font-weight:600;">Available API's:</p>
+                </div>
+                <div class="row" style="padding-top:15px;">
+                    <div class="col-md-6">
+                        <ul style="list-style-type: none;">
+                          <li>Current Weather & Alerts</li>
+                          <li>60 Min Rain/Snow Nowcast</li>
+                          <li>Daily Forecasts</li>
+                          <li>Hourly Forecasts</li>
+                          <li>Lightning</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul style="list-style-type: none;">
+                          <li>Historical Weather</li>
+                          <li>Air Quality & Pollen</li>
+                          <li>Agricultural Data</li>
+                          <li>Climate Normals</li>
+                          <li>Degree Days</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 20px;">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <a href="/account/create">
+                            <button type="button" class="btn btn-primary" style="border-radius: 5px; float: right;"><b>Try it for free!</b></button>
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="/api">
+                            <button type="button" class="btn btn-primary" style="border-radius: 5px; float:left;">View Documentation</button>
+                        </a>
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="simple-powerful-reliable" class="primary">
+        <div class="container">
+            <div class="row-content">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h2 class="text-center">A Simple and Powerful Weather API</h2>
+                    <h3 style="color:#747474;" class="lead text-center">Getting access to accurate weather forecasts and historical weather data via API has never been easier.</h3>
+                </div>
+            </div>
+
+            <div class="row-content shrink">
+                <div id="weather-forecast-accuracy" class="col-sm-4 splash-icon">
+
+                    <i class="fa fa-server fa-5x fa-icon-centered" aria-hidden="true" alt="Machine Learning Powered Weather Forecasts"></i>
+                    <h3 class="text-center h3-medium">Machine Learning Powered</h3>
+                    <p class="text-center">
+                        Our Weather API leverages <a href="https://blog.weatherbit.io/api-new-bias-correction-algorithm/" target="_blank">advanced machine learning techniques to correct biases in forecast models</a>, reducing forecast error by up to 50% in some areas when compared to high resolution regional weather models. Our forecasts consistently outperform competitors, including the US National Weather Service. For live performance comparisons, visit our <a href="/forecast-comparison" target="_blank">forecast verification page</a>.
+                    </p>
+                </div>
+
+                <div id="historical-weather" class="col-sm-4 pad-xs splash-icon">
+                    <i class="fa fa-thermometer-full fa-5x fa-icon-centered" aria-hidden="true" style="color:#161616;" alt="Historical Weather Data API"></i>
+                    <h3 class="text-center h3-medium">Complete/Gap-Free</h3>
+                    <p class="text-center">The most accurate collection of complete, and gap-free historical weather observations on the web. Backed by multiple data sources including station data, satellite, radar, and re-analysis products. The <a href="/api/historical-weather-api">Historical Weather API</a> provides data >20 years in the past, and at timesteps as small as 15 minutes. We utilize advanced methods to backfill, and interpolate missing data in order to provide a historical weather dataset with a <b>guaranteed 99.5% data availability</b> for any location/time. 
+                </div>
+
+                <div id="weather-update-frequency" class="col-sm-4 pad-xs splash-icon">
+                    <i class="fa fa-tachometer fa-5x fa-icon-centered" aria-hidden="true" style="color:#ff5050;" alt="Rapid Weather Updates"></i>
+                    <h3 class="text-center h3-medium">Rapidly Updating</h3>
+                    <p class="text-center"> 
+                         Real-time weather intelligence with exceptional timeliness and relevance. We provide high-frequency updates across our data offerings, with current conditions refreshing every 5-10 minutes, weather forecasts updating hourly, and severe weather alerts dispatching instantly upon issuance. This rapid refresh rate ensures you always have access to the latest meteorological insights, crucial for time-sensitive applications and decision-making processes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div id="hyperlocal" class="col-sm-4 pad-xs splash-icon">
+                    <i class="fa fa-street-view fa-5x fa-icon-centered" aria-hidden="true" style="color:#1B4866;" alt="Hyperlocal Weather API"></i>
+                    <h3 class="text-center h3-medium">Hyperlocal</h3>
+                    <p class="text-center">
+                        Obtain hyperlocal observed weather data and precise forecasts for any location worldwide. Leveraging cutting-edge technology, this Weather API provides exceptional spatial resolution, ranging from ultra-fine sub-kilometer precision to broader 13 km grids. This granularity allows users to obtain highly localized weather information, crucial for applications requiring pinpoint accuracy. 
+                    </p>
+                </div>
+
+                <div id="powerful-tools" class="col-sm-4 pad-xs splash-icon">
+                    <i class="fa fa-tree fa-5x fa-icon-centered" aria-hidden="true" style="color:#3bb878;" alt="Scale your usage with your demands"></i>
+                    <h3 class="text-center h3-medium">Scalable</h3>
+                    <p class="text-center">Scale your usage to your budget. Start out with our <a href="/pricing#free_tier">free subscription</a>, and upgrade to a <a href="/pricing">paid subscription</a> with no long-term commitment as your weather data needs grow. You can scale up to 10 Million requests/day in your account dashboard with just a few clicks. </p>
+                </div>
+
+                <div id="help-is-here" class="col-sm-4 pad-xs splash-icon">
+                    <i class="fa fa-bolt fa-5x fa-icon-centered" aria-hidden="true" style="color:#ff9900;" alt="Fast and reliable Weather API"></i>
+                    <h3 class="text-center h3-medium">Fast and Reliable</h3>
+                    <p class="text-center">Our service is hosted in multiple data centers around the world, and has been available >99.999% of the time since 2017. We also offer uptime guarentees ranging from 95% to 99.99% for Enterprise customers. You can view the current health of our API's quickly, and easily on our <a href="https://status.weatherbit.io" target="_blank">API status page</a>.</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="home-learn-more"><a href="/features">Learn More About the Weather API <span class="caret-right"></span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main><section class="dark">
+    <div class="container">
+
+        <div class="row">
+            <div class="footer-col">
+                <h4><a href="/features">Overview</a></h4>
+                <ul>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/terms">Terms and Conditions</a></li>
+                    <li><a href="/privacy">Privacy Statement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4><a href="/api">Weather API's</a></h4>
+                <ul>
+                    <li><a href="/api/weather-current">Current Weather API</a></li>
+                    <li><a href="/api/alerts">Severe Weather Alerts API</a></li>
+                    <li><a href="/api/weather-forecast-api">Weather Forecast API</a></li>
+                    <li><a href="/api/historical-weather-api">Historical Weather API</a></li>
+                    <li><a href="/api/agweather-api">Ag Weather API</a></li>
+                    <li><a href="/api/air-quality-api">Air Quality API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://status.weatherbit.io">API Status</a></li>
+                    <li><a href="/api">API Documentation</a></li>
+                    <li><a href="/maps">Weather Maps</a></li>
+                    <li><a href="https://help.weatherbit.io/faq">Frequently Asked Questions</a></li>
+                    <li><a href="https://help.weatherbit.io">Knowledge Base</a></li>
+                    <li><a href="https://blog.weatherbit.io">Blog</a></li>
+                    <li><a href="/about">About Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col">
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4><a href="https://help.weatherbit.io">Support</a></h4>
+                <ul>
+                    <li><a href="/contact">Contact us</a></li>
+                    <li><a href="mailto:support@weatherbit.io">Email us</a></li>
+                    <li>
+                        <br>
+                        <a target="_blank" rel="noopener noreferrer" href="https://facebook.com/weatherbitio"><i class="fa fa-facebook-square"></i></a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/weatherbitio"><i class="fa fa-twitter-square"></i></a>
+                        <!-- <a target="_blank" rel="noopener noreferrer" href="https://plus.google.com/115775227465399285074"><i class="fa fa-google-plus-square"></i></a> -->
+<!--                         <a target="_blank" href="https://linkedin.com/company/weatherbitio"><i class="fa fa-linkedin-square"></i></a> -->
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/weatherbit"><i class="fa fa-github-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section><style type="text/css">
+                pre[class*="language-"],
+                code[class*="language-"] {
+                    color: #d4d4d4;
+                    font-size: 13px;
+                    text-shadow: none;
+                    font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+                    direction: ltr;
+                    text-align: left;
+                    white-space: pre;
+                    word-spacing: normal;
+                    word-break: normal;
+                    line-height: 1.5;
+                    -moz-tab-size: 4;
+                    -o-tab-size: 4;
+                    tab-size: 4;
+                    -webkit-hyphens: none;
+                    -moz-hyphens: none;
+                    -ms-hyphens: none;
+                    hyphens: none;
+                }
+
+                pre[class*="language-"]::selection,
+                code[class*="language-"]::selection,
+                pre[class*="language-"] *::selection,
+                code[class*="language-"] *::selection {
+                    text-shadow: none;
+                    background: #264F78;
+                }
+
+                @media print {
+                    pre[class*="language-"],
+                    code[class*="language-"] {
+                        text-shadow: none;
+                    }
+                }
+
+                pre[class*="language-"] {
+                    padding: 1em;
+                    margin: .5em 0;
+                    overflow: auto;
+                    background: #1e1e1e;
+                }
+
+                :not(pre) > code[class*="language-"] {
+                    padding: .1em .3em;
+                    border-radius: .3em;
+                    color: #db4c69;
+                    background: #1e1e1e;
+                }
+                /*********************************************************
+                * Tokens
+                */
+                .namespace {
+                    opacity: .7;
+                }
+
+                .token.doctype .token.doctype-tag {
+                    color: #569CD6;
+                }
+
+                .token.doctype .token.name {
+                    color: #9cdcfe;
+                }
+
+                .token.comment,
+                .token.prolog {
+                    color: #6a9955;
+                }
+
+                .token.punctuation,
+                .language-html .language-css .token.punctuation,
+                .language-html .language-javascript .token.punctuation {
+                    color: #d4d4d4;
+                }
+
+                .token.property,
+                .token.tag,
+                .token.boolean,
+                .token.number,
+                .token.constant,
+                .token.symbol,
+                .token.inserted,
+                .token.unit {
+                    color: #b5cea8;
+                }
+
+                .token.selector,
+                .token.attr-name,
+                .token.string,
+                .token.char,
+                .token.builtin,
+                .token.deleted {
+                    color: #ce9178;
+                }
+
+                .language-css .token.string.url {
+                    text-decoration: underline;
+                }
+
+                .token.operator,
+                .token.entity {
+                    color: #d4d4d4;
+                }
+
+                .token.operator.arrow {
+                    color: #569CD6;
+                }
+
+                .token.atrule {
+                    color: #ce9178;
+                }
+
+                .token.atrule .token.rule {
+                    color: #c586c0;
+                }
+
+                .token.atrule .token.url {
+                    color: #9cdcfe;
+                }
+
+                .token.atrule .token.url .token.function {
+                    color: #dcdcaa;
+                }
+
+                .token.atrule .token.url .token.punctuation {
+                    color: #d4d4d4;
+                }
+
+                .token.keyword {
+                    color: #569CD6;
+                }
+
+                .token.keyword.module,
+                .token.keyword.control-flow {
+                    color: #c586c0;
+                }
+
+                .token.function,
+                .token.function .token.maybe-class-name {
+                    color: #dcdcaa;
+                }
+
+                .token.regex {
+                    color: #d16969;
+                }
+
+                .token.important {
+                    color: #569cd6;
+                }
+
+                .token.italic {
+                    font-style: italic;
+                }
+
+                .token.constant {
+                    color: #9cdcfe;
+                }
+
+                .token.class-name,
+                .token.maybe-class-name {
+                    color: #4ec9b0;
+                }
+
+                .token.console {
+                    color: #9cdcfe;
+                }
+
+                .token.parameter {
+                    color: #9cdcfe;
+                }
+
+                .token.interpolation {
+                    color: #9cdcfe;
+                }
+
+                .token.punctuation.interpolation-punctuation {
+                    color: #569cd6;
+                }
+
+                .token.boolean {
+                    color: #569cd6;
+                }
+
+                .token.property,
+                .token.variable,
+                .token.imports .token.maybe-class-name,
+                .token.exports .token.maybe-class-name {
+                    color: #9cdcfe;
+                }
+
+                .token.selector {
+                    color: #d7ba7d;
+                }
+
+                .token.escape {
+                    color: #d7ba7d;
+                }
+
+                .token.tag {
+                    color: #569cd6;
+                }
+
+                .token.tag .token.punctuation {
+                    color: #808080;
+                }
+
+                .token.cdata {
+                    color: #808080;
+                }
+
+                .token.attr-name {
+                    color: #9cdcfe;
+                }
+
+                .token.attr-value,
+                .token.attr-value .token.punctuation {
+                    color: #ce9178;
+                }
+
+                .token.attr-value .token.punctuation.attr-equals {
+                    color: #d4d4d4;
+                }
+
+                .token.entity {
+                    color: #569cd6;
+                }
+
+                .token.namespace {
+                    color: #4ec9b0;
+                }
+                /*********************************************************
+                * Language Specific
+                */
+
+                pre[class*="language-javascript"],
+                code[class*="language-javascript"],
+                pre[class*="language-jsx"],
+                code[class*="language-jsx"],
+                pre[class*="language-typescript"],
+                code[class*="language-typescript"],
+                pre[class*="language-tsx"],
+                code[class*="language-tsx"] {
+                    color: #9cdcfe;
+                }
+
+                pre[class*="language-css"],
+                code[class*="language-css"] {
+                    color: #ce9178;
+                }
+
+                pre[class*="language-html"],
+                code[class*="language-html"] {
+                    color: #d4d4d4;
+                }
+
+                .language-regex .token.anchor {
+                    color: #dcdcaa;
+                }
+
+                .language-html .token.punctuation {
+                    color: #808080;
+                }
+                /*********************************************************
+                * Line highlighting
+                */
+                pre[class*="language-"] > code[class*="language-"] {
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .line-highlight.line-highlight {
+                    background: #f7ebc6;
+                    box-shadow: inset 5px 0 0 #f7d87c;
+                    z-index: 0;
+                }
+
+                .ex-selected {
+                    background-color:#35a56b ;
+                }
+                .btn-primary:hover,
+                .btn-primary:focus {
+                  color: #ffffff;
+                  background-color: #35a56b;
+                  border-color: #006f98;
+                }
+            </style>
+
+            <script
+              src="https://code.jquery.com/jquery-2.2.4.min.js"
+              integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+              crossorigin="anonymous"></script>
+            <script src="https://cdn.weatherbit.io/static/js/animated-weather.min.js"></script>
+            <!-- for navigation -->
+            <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js" defer></script><script src="https://cdn.weatherbit.io/static/js/main.js"></script>
+
+            <script>
+                function showCode(codeId, id) {
+                  // Hide all code blocks except for the one with the given ID
+                  document.querySelectorAll('.code-block').forEach(function(codeBlock) {
+                    if(codeBlock.id === 'ex1-code') {
+                        codeBlock.style.marginTop = '-40px';
+                    } else if (codeBlock.id === 'ex2-code') {
+                        codeBlock.style.marginTop = '-60px';
+                    } else if (codeBlock.id === 'ex3-code') {
+                        codeBlock.style.marginTop = '-80px';
+                    }
+
+                    if (codeBlock.id === codeId) {
+                      codeBlock.style.display = 'block';
+                    } else {
+                      codeBlock.style.display = 'none';
+                    }
+                  });
+
+                  document.querySelectorAll('.req-block').forEach(function(codeBlock) {
+                    if(codeBlock.id === 'ex1-codereq') {
+                        codeBlock.style.marginTop = '-10px';
+                    } else if (codeBlock.id === 'ex2-codereq') {
+                        codeBlock.style.marginTop = '-30px';
+                    } else if (codeBlock.id === 'ex3-codereq') {
+                        codeBlock.style.marginTop = '-50px';
+                    }
+                    if (codeBlock.id === codeId+'req') {
+                      codeBlock.style.display = 'block';
+                    } else {
+                      codeBlock.style.display = 'none';
+                    }
+                  });
+
+                  console.log('fick');
+                  console.log(codeId);
+
+                  // Get all the button elements
+                  const buttons = document.querySelectorAll('.btn');
+
+                  // Remove the 'selected' class from all the buttons
+                  buttons.forEach(btn => btn.classList.remove('ex-selected'));
+
+                  // Get the button element corresponding to the clicked code example
+                  const activeButton = document.querySelector(`#${id}-btn`);
+
+                  // Add the 'selected' class to the active button
+                  activeButton.classList.add('ex-selected');
+
+                  // Get all the code example elements
+                  const codeExamples = document.querySelectorAll('.code-block');
+
+                  // Hide all the code examples
+                  codeExamples.forEach(code => code.style.display = 'none');
+
+                  // Show the clicked code example
+                  const activeCodeExample = document.querySelector(`#${codeId}`);
+                  const activeCodeExampleReq = document.querySelector(`#${codeId}req`);
+                  activeCodeExample.style.display = 'block';
+                  activeCodeExampleReq.style.display = 'block;'
+                }
+
+                $(document).ready(function() {
+                    // Hide all code blocks except for ex1-code
+                    document.querySelectorAll('.code-block').forEach(function(codeBlock) {
+                        if (codeBlock.id === 'ex1-code') {
+                            codeBlock.style.display = '';
+                            codeBlock.style.marginTop = '-40px';
+                            console.log("Setting display");
+                            codeBlock.style.display = 'block;'
+                        } else {
+                            codeBlock.style.display = 'none';
+                        }
+                    });
+                    document.querySelectorAll('.req-block').forEach(function(codeBlock) {
+                        if (codeBlock.id === 'ex1-codereq') {
+                            codeBlock.style.display = '';
+                            codeBlock.style.marginTop = '-10px';
+                            codeBlock.style.display = 'block;'
+                        } else {
+                            codeBlock.style.display = 'none';
+                        }
+                    });
+                    var people = ["Developers", "Traders", "Scientists", "Meteorologists", "Agronomists", "Farmers", "Advertisers", "Event Planners", "Photographers", "Weather Enthusiasts", "Truckers",  "Programmers", "Executives", "You."];
+                    var $who = $("#weather-apis-for");
+
+                    var duration = 300;
+                    var delay = 1000;
+
+                    var animation = {
+                        delay: "2.0s",
+                        in: "fadeInLeft",
+                        out: "fadeOutRight",
+
+                        enableDelay: function() {
+                            $who.addClass("home-animation-delay");
+                        },
+
+                        disableDelay: function() {
+                            $who.removeClass("home-animation-delay");
+                        }
+                    };
+
+                    Home = {
+                        animationComplete: false,
+                        cycle: function() {
+                            if (!people.length) Home.animationComplete = true;
+
+                            // animate in
+                            animation.disableDelay();
+                            $who.removeClass(animation.out);
+                            $who.addClass(animation.in);
+
+
+                            $who.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                if (!Home.animationComplete) {
+                                    // animate out
+                                    animation.enableDelay();
+                                    $who.removeClass(animation.in);
+                                    $who.addClass(animation.out);
+                                    $who.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                        $who.text(people.shift());
+                                        Home.cycle();
+                                    });
+                                }
+                            });
+                        }
+                    };
+
+                    Home.cycle();
+                });
+            </script></body>
+</html>
