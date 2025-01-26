@@ -17,13 +17,12 @@
 
 ### Example Request URL
 
-```
-https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London&aqi=yes
-```
+```https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London&aqi=yes```
 
 ## Part 2: Analyzing and Documenting the Response
 
 ### Example JSON Response:
+
 -see json file
 
 ### Observations
